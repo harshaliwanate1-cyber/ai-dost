@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover useful AI tools for chat, writing, images, video, voice, study and coding.">
+<meta name="theme-color" content="#101126">
+<title>AI Dost — Discover AI Tools</title>
+<style>
+:root{--bg:#0d1020;--panel:#171b32;--panel2:#202642;--text:#f5f6ff;--muted:#aeb5d1;--accent:#9c8cff;--cyan:#5ee7df;--line:#303754}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#24204d 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:22px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:8px 0 28px}.brand{font-size:22px;font-weight:850;letter-spacing:-.7px}.brand span{color:var(--cyan)}.navtag{color:var(--muted);font-size:13px}
+.hero{text-align:center;padding:54px 14px 34px}.pill{display:inline-block;border:1px solid #55517f;background:#262347;color:#d8d1ff;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:700}.hero h1{font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-2px;margin:18px 0 14px}.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:620px;margin:0 auto;color:var(--muted);font-size:16px;line-height:1.65}
+.searchbox{max-width:650px;margin:28px auto 0;display:flex;gap:10px;background:#fff;padding:7px;border-radius:15px;box-shadow:0 15px 50px #0005}.searchbox input{flex:1;min-width:0;border:0;outline:0;padding:12px 14px;font-size:15px;color:#15172a}.searchbox button{border:0;border-radius:10px;padding:0 18px;background:#6555d9;color:white;font-weight:750}
+.stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:25px;color:var(--muted);font-size:13px}.stats b{color:white}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:38px 0 16px}.sectionhead h2{margin:0;font-size:23px}.sectionhead p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.filters{display:flex;gap:8px;overflow:auto;padding:2px 0 14px}.filter{white-space:nowrap;border:1px solid var(--line);background:transparent;color:var(--muted);padding:9px 14px;border-radius:99px;font-size:13px;cursor:pointer}.filter.active,.filter:hover{background:#393263;border-color:#7769dc;color:white}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:linear-gradient(145deg,var(--panel),#14182c);border:1px solid var(--line);border-radius:17px;padding:18px;display:flex;flex-direction:column;min-height:190px;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#7668d8}.top{display:flex;align-items:center;gap:11px}.logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--panel2);font-size:22px}.name{font-weight:800}.cat{font-size:11px;color:var(--cyan);margin-top:3px}.desc{color:var(--muted);font-size:13px;line-height:1.5;margin:15px 0;flex:1}.bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.free{font-size:11px;color:#a9e9c7;background:#18372e;padding:5px 8px;border-radius:99px}.visit{font-size:12px;font-weight:750;color:#d8d1ff}.empty{display:none;text-align:center;color:var(--muted);padding:35px}.note{margin:30px 0 0;padding:16px;border:1px solid var(--line);border-radius:14px;color:var(--muted);font-size:12px;line-height:1.6}.note b{color:white}footer{padding:30px 0 10px;text-align:center;color:#838ba9;font-size:12px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:35px}.sectionhead{align-items:start;flex-direction:column}}
+@media(max-width:480px){.wrap{padding:16px}.grid{grid-template-columns:1fr}.card{min-height:165px}.hero h1{letter-spacing:-1.3px}.navtag{display:none}.searchbox button{padding:0 12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="#">✦ AI <span>DOST</span></a><div class="navtag">Your friendly guide to AI tools</div></nav>
+<header class="hero">
+  <span class="pill">✦ EXPLORE THE WORLD OF AI</span>
+  <h1>Find the right AI tool<br><em>for every idea.</em></h1>
+  <p>Discover helpful AI tools for writing, research, images, videos, voice, studying and coding — all in one place.</p>
+  <div class="searchbox"><input id="search" type="search" placeholder="Search tools… e.g. image, resume, coding" aria-label="Search AI tools"><button id="clear" type="button">Clear</button></div>
+  <div class="stats"><span><b id="count">20</b> curated tools</span><span>✦ Simple and beginner-friendly</span><span>🌍 Made for everyone</span></div>
+</header>
+<section>
+<div class="sectionhead"><div><h2>Explore AI tools</h2><p>Choose a category or search for what you need.</p></div></div>
+<div class="filters" id="filters">
+<button class="filter active" data-cat="All">All tools</button>
+<button class="filter" data-cat="Chat">💬 Chat & Research</button>
+<button class="filter" data-cat="Writing">✍️ Writing</button>
+<button class="filter" data-cat="Image">🎨 Images & Design</button>
+<button class="filter" data-cat="Video">🎬 Video</button>
+<button class="filter" data-cat="Voice">🎙️ Voice</button>
+<button class="filter" data-cat="Study">📚 Study</button>
+<button class="filter" data-cat="Coding">💻 Coding</button>
+</div>
+<div class="grid" id="grid">
+<article class="card" data-cat="Chat" data-search="chatgpt openai chatbot writing questions ideas"><div class="top"><div class="logo">🤖</div><div><div class="name">ChatGPT</div><div class="cat">CHAT & RESEARCH</div></div></div><p class="desc">Ask questions, brainstorm, write, learn and work through ideas.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://chatgpt.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Chat" data-search="gemini google assistant research writing"><div class="top"><div class="logo">✨</div><div><div class="name">Google Gemini</div><div class="cat">CHAT & RESEARCH</div></div></div><p class="desc">Google's AI assistant for questions, writing, ideas and more.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://gemini.google.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Chat" data-search="claude anthropic chatbot documents analysis"><div class="top"><div class="logo">🧠</div><div><div class="name">Claude</div><div class="cat">CHAT & RESEARCH</div></div></div><p class="desc">Helpful for writing, document analysis, coding and thoughtful answers.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://claude.ai/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Chat" data-search="perplexity search research sources answers"><div class="top"><div class="logo">🔎</div><div><div class="name">Perplexity</div><div class="cat">CHAT & RESEARCH</div></div></div><p class="desc">Research questions and explore answers with linked sources.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://www.perplexity.ai/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Chat" data-search="microsoft copilot chatbot assistant"><div class="top"><div class="logo">🪟</div><div><div class="name">Microsoft Copilot</div><div class="cat">CHAT & RESEARCH</div></div></div><p class="desc">An AI assistant for everyday questions, ideas and productivity.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Writing" data-search="quillbot paraphrase grammar rewrite"><div class="top"><div class="logo">📝</div><div><div class="name">QuillBot</div><div class="cat">WRITING</div></div></div><p class="desc">Rewrite, paraphrase and improve your writing.</p><div class="bottom"><span class="free">Free limits</span><a class="visit" href="https://quillbot.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Writing" data-search="grammarly grammar writing editing"><div class="top"><div class="logo">✍️</div><div><div class="name">Grammarly</div><div class="cat">WRITING</div></div></div><p class="desc">Check grammar, spelling, clarity and tone.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://www.grammarly.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Writing" data-search="deepl translate translation language"><div class="top"><div class="logo">🌐</div><div><div class="name">DeepL</div><div class="cat">WRITING</div></div></div><p class="desc">Translate text between supported languages.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://www.deepl.com/translator" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Image" data-search="canva design poster social media image presentation"><div class="top"><div class="logo">🎨</div><div><div class="name">Canva AI</div><div class="cat">IMAGES & DESIGN</div></div></div><p class="desc">Create designs, presentations, posters and social content.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://www.canva.com/ai-tools/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Image" data-search="adobe firefly image generator design"><div class="top"><div class="logo">🖼️</div><div><div class="name">Adobe Firefly</div><div class="cat">IMAGES & DESIGN</div></div></div><p class="desc">Explore AI-powered image creation and creative tools.</p><div class="bottom"><span class="free">Limited free use</span><a class="visit" href="https://firefly.adobe.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Image" data-search="ideogram image generation typography text pictures"><div class="top"><div class="logo">💠</div><div><div class="name">Ideogram</div><div class="cat">IMAGES & DESIGN</div></div></div><p class="desc">Generate images and designs, including visuals with text.</p><div class="bottom"><span class="free">Free limits</span><a class="visit" href="https://ideogram.ai/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Image" data-search="leonardo ai image art generator"><div class="top"><div class="logo">🪄</div><div><div class="name">Leonardo AI</div><div class="cat">IMAGES & DESIGN</div></div></div><p class="desc">Create AI artwork, concepts and visual assets.</p><div class="bottom"><span class="free">Free limits</span><a class="visit" href="https://leonardo.ai/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Video" data-search="capcut video editor reels shorts captions"><div class="top"><div class="logo">🎬</div><div><div class="name">CapCut</div><div class="cat">VIDEO</div></div></div><p class="desc">Edit videos, create short-form content and add captions.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://www.capcut.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Video" data-search="runway ai video generator filmmaking"><div class="top"><div class="logo">🎥</div><div><div class="name">Runway</div><div class="cat">VIDEO</div></div></div><p class="desc">Explore AI video generation and creative video tools.</p><div class="bottom"><span class="free">Limited free use</span><a class="visit" href="https://runwayml.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Voice" data-search="elevenlabs voice text to speech audio"><div class="top"><div class="logo">🎙️</div><div><div class="name">ElevenLabs</div><div class="cat">VOICE</div></div></div><p class="desc">Create AI voiceovers and explore speech tools.</p><div class="bottom"><span class="free">Free limits</span><a class="visit" href="https://elevenlabs.io/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Study" data-search="notebooklm google study notes documents research"><div class="top"><div class="logo">📚</div><div><div class="name">NotebookLM</div><div class="cat">STUDY</div></div></div><p class="desc">Study and explore information from your own sources.</p><div class="bottom"><span class="free">Free option</span><a class="visit" href="https://notebooklm.google.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Study" data-search="gamma presentation slides documents"><div class="top"><div class="logo">📊</div><div><div class="name">Gamma</div><div class="cat">STUDY</div></div></div><p class="desc">Create presentations and documents with AI assistance.</p><div class="bottom"><span class="free">Free limits</span><a class="visit" href="https://gamma.app/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Coding" data-search="google ai studio coding developer models"><div class="top"><div class="logo">🧑‍💻</div><div><div class="name">Google AI Studio</div><div class="cat">CODING</div></div></div><p class="desc">Experiment with Google's AI models and build prototypes.</p><div class="bottom"><span class="free">Free access limits</span><a class="visit" href="https://aistudio.google.com/" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+<article class="card" data-cat="Coding" data-search="github copilot code programming assistant"><div class="top"><div class="logo">⌨️</div><div><div class="name">GitHub Copilot</div><div class="cat">CODING</div></div></div><p class="desc">Get AI assistance while writing and understanding code.</p><div class="bottom"><span class="free">Free plan limits</span><a class="visit" href="https://github.com/features/copilot" target="_blank" rel="noopener">Visit tool ↗</a></div></article>
+</div>
+<div class="empty" id="empty">No tools found. Try another search.</div>
+<div class="note"><b>Friendly reminder:</b> “Free” plans may have daily or monthly limits, and features can change. Check each provider’s current terms before signing up. AI Dost is an independent directory and is not affiliated with the tools listed here. Never share passwords, banking details or sensitive personal information with AI tools.</div>
+</section>
+<footer>© 2026 AI Dost · Discover. Create. Learn.</footer>
+</div>
+<script>
+const search=document.getElementById('search'), cards=[...document.querySelectorAll('.card')], filters=[...document.querySelectorAll('.filter')], empty=document.getElementById('empty'), count=document.getElementById('count');
+let active='All';
+function update(){const q=search.value.trim().toLowerCase();let n=0;cards.forEach(c=>{const okCat=active==='All'||c.dataset.cat===active;const okText=(c.innerText+' '+c.dataset.search).toLowerCase().includes(q);const show=okCat&&okText;c.style.display=show?'flex':'none';if(show)n++});empty.style.display=n?'none':'block';count.textContent=n;}
+filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.cat;update()}));
+search.addEventListener('input',update);document.getElementById('clear').addEventListener('click',()=>{search.value='';active='All';filters.forEach(x=>x.classList.toggle('active',x.dataset.cat==='All'));update();search.focus()});
+update();
+</script>
+</body>
+</html>
